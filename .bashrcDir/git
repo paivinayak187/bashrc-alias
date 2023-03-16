@@ -1,0 +1,34 @@
+#! /bin/bash
+
+# Checks out the main branch, does a git fetch and then rebases it to the latest commit
+alias gfrebase='git checkout main; git fetch; git pull --rebase'
+
+# List git local branches
+alias gbranches='git branch'
+
+# List git log
+alias glog='git log'
+
+# List the differences between unstaged changes and last commit
+alias gdiff='git diff'
+
+# Delete git local branches
+gdelete-local-branches() {
+    for branchname in "$@"
+    do
+        git branch -D "$branchname"
+    done
+}
+
+# Checks out to a local branch
+gcheckout-branch() {
+    git checkout "$1"
+}
+
+# Create new local branch
+gcheckout-branch-new() {
+    git checkout -b "$1"
+}
+gcreate-new-branch() {
+    git checkout -b "$1"
+}
